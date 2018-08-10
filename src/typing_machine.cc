@@ -6,6 +6,7 @@ TypingMachine::TypingMachine() {
   this->headNode = new Node('H');
   this->cursorNode = this->headNode;
   this->tailNode = this->cursorNode->InsertNextNode('T');
+  stringCount = 0;
 }
 
 void TypingMachine::HomeKey() {
@@ -30,7 +31,9 @@ void TypingMachine::RightKey() {
 
 bool TypingMachine::TypeKey(char key) {
   if (key < 32 || key > 126) return false;
+  if (stringCount >= 100) return false;
   this->cursorNode = this->cursorNode->InsertNextNode(key);
+  stringCount++;
   return true;
 }
 
@@ -38,6 +41,7 @@ bool TypingMachine::EraseKey() {
   if (this->cursorNode == this->headNode) return false;
   this->cursorNode = this->cursorNode->GetPreviousNode();
   this->cursorNode->EraseNextNode();
+  stringCount--;
   return true;
 }
 

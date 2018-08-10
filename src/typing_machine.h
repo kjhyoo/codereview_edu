@@ -12,6 +12,7 @@ class TypingMachine {
   Node* headNode;
   Node* tailNode;
   Node* cursorNode;
+  int stringCount;
 
  public:
   TypingMachine();
