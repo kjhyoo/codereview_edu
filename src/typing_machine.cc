@@ -3,33 +3,58 @@
 #include "typing_machine.h"
 
 TypingMachine::TypingMachine() {
-  return;
+  this->headNode = new Node('H');
+  this->cursorNode = this->headNode;
+  this->tailNode = this->cursorNode->InsertNextNode('T');
 }
 
 void TypingMachine::HomeKey() {
-  return;
+  this->cursorNode = this->headNode;
 }
 
 void TypingMachine::EndKey() {
-  return;
+  this->cursorNode = this->tailNode->GetPreviousNode();
 }
 
 void TypingMachine::LeftKey() {
-  return;
+  if (this->cursorNode != this->headNode) {
+    this->cursorNode = this->cursorNode->GetPreviousNode();
+  }
 }
 
 void TypingMachine::RightKey() {
-  return;
+  if (this->cursorNode->GetNextNode() != this->tailNode) {
+    this->cursorNode = this->cursorNode->GetNextNode();
+  }
 }
 
 bool TypingMachine::TypeKey(char key) {
-  return false;
+  if (key < 32 || key > 126) return false;
+  this->cursorNode = this->cursorNode->InsertNextNode(key);
+  return true;
 }
 
 bool TypingMachine::EraseKey() {
-  return false;
+  if (this->cursorNode == this->headNode) return false;
+  this->cursorNode = this->cursorNode->GetPreviousNode();
+  this->cursorNode->EraseNextNode();
+  return true;
 }
 
 std::string TypingMachine::Print(char separator) {
-  return "";
+  std::string result = "";
+
+  Node* currentNode = this->headNode;
+  if (currentNode == this->cursorNode && separator != '\0') {
+	  result.push_back(separator);
+  }
+  currentNode = currentNode->GetNextNode();
+  while (currentNode != this->tailNode) {
+	  result.push_back(currentNode->GetData());
+	  if (currentNode == this->cursorNode && separator != '\0') {
+		  result.push_back(separator);
+	  }
+	  currentNode = currentNode->GetNextNode();
+  }
+  return result;
 }
