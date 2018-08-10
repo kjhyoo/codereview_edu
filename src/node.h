@@ -4,6 +4,11 @@
 #define NODE_H_
 
 class Node {
+private:
+  char data;
+  Node* previousNode;
+  Node* nextNode;
+
  public:
   explicit Node(char data);
   char GetData();
