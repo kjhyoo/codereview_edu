@@ -27,7 +27,7 @@ We will implement Node type denoting each node of linked list.
     +----------+---------------------------+----------+
 ```
 
-    One public constructor and five public functions should be implemented.
+  One public constructor and five public functions should be implemented.
   - explicit Node(char data): This constructor should make Node storing data as internal
   data.
   - char GetData(): This function should return internal data.
@@ -54,15 +54,15 @@ You can verify correctness of this class Node with judging system.
 
 ### 2.2 class TypingMachine
 We will implement TypingMachine type denoting whole typing machine.
-    One public constructor and seven public functions should be implemented.
-    - TypingMachine(): Initialize new Typing Machine
-    - void HomeKey(): Move cursor at the beginning of the line.
-    - void EndKey(): Move cursor at the end of the line.
-    - void LeftKey(): Move cursor one step left.
-    - void RightKey(): Move cursor one step right.
-    - bool TypeKey(char key): Insert key at the left of the cursor. This typing machine only accept key in ASCII range 32 (0x20, ' ') through 126 (0x7E, '~'), inclusive. If element is out of range, you should do nothing. If you inserted a character, this function should return true, otherwise return false.
-    - bool EraseKey(): Erase a character at the left of the cursor. If it does not exist, do nothing. If you erased a character, this function should return true, otherwise return false.
-    - std::string Print(char separator): Return typed string in typing machine. You should put separator to the place where cursor exists. If separator is 0 (NUL character), you should not display the cursor.
+  One public constructor and seven public functions should be implemented.
+  - TypingMachine(): Initialize new Typing Machine
+  - void HomeKey(): Move cursor at the beginning of the line.
+  - void EndKey(): Move cursor at the end of the line.
+  - void LeftKey(): Move cursor one step left.
+  - void RightKey(): Move cursor one step right.
+  - bool TypeKey(char key): Insert key at the left of the cursor. This typing machine only accept key in ASCII range 32 (0x20, ' ') through 126 (0x7E, '~'), inclusive. If element is out of range, you should do nothing. If you inserted a character, this function should return true, otherwise return false.
+  - bool EraseKey(): Erase a character at the left of the cursor. If it does not exist, do nothing. If you erased a character, this function should return true, otherwise return false.
+  - std::string Print(char separator): Return typed string in typing machine. You should put separator to the place where cursor exists. If separator is 0 (NUL character), you should not display the cursor.
 
 Function LeftKey, RightKey, EraseKey should do nothing if there does not exist target of
 function.
