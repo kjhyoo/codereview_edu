@@ -4,8 +4,8 @@
 
 Node::Node(char data) {
   this->data = data;
-  this->previousNode = nullptr;
-  this->nextNode = nullptr;
+  previousNode = nullptr;
+  nextNode = nullptr;
 }
 
 char Node::GetData() {
@@ -13,58 +13,62 @@ char Node::GetData() {
 }
 
 Node* Node::GetPreviousNode() {
-  if (previousNode != nullptr) return previousNode;
-  return nullptr;
+  if (previousNode == nullptr) return nullptr;
+  return previousNode;
 }
 
 Node* Node::GetNextNode() {
-  if (nextNode != nullptr) return nextNode;
-  return nullptr;
+  if (nextNode == nullptr) return nullptr;
+  return nextNode;
 }
 
 Node* Node::InsertPreviousNode(char data) {
   Node* newNode = new Node(data);
-  if (this->previousNode != nullptr) {
-    newNode->previousNode = this->previousNode;
-    this->previousNode->nextNode = newNode;
-  }
+  newNode->previousNode = previousNode;
   newNode->nextNode = this;
-  this->previousNode = newNode;
+  
+  if (previousNode != nullptr) {
+    previousNode->nextNode = newNode;
+  }
+  previousNode = newNode;
 
   return newNode;
 }
 
 Node* Node::InsertNextNode(char data) {
   Node* newNode = new Node(data);
-  if (this->nextNode != nullptr) {
-	newNode->nextNode = this->nextNode;
-	this->nextNode->previousNode = newNode;
-  }
   newNode->previousNode = this;
-  this->nextNode = newNode;
+  newNode->nextNode = nextNode;
+
+  if (nextNode != nullptr) {
+    nextNode->previousNode = newNode;
+  }
+  nextNode = newNode;
 
   return newNode;
 }
 
 bool Node::ErasePreviousNode() {
-  if (this->previousNode == nullptr) return false;
-  Node* deleteNode = this->previousNode;
+  if (previousNode == nullptr) return false;
+
+  Node* deleteNode = previousNode;
   if (deleteNode->previousNode != nullptr) {
     deleteNode->previousNode->nextNode = this;
   }
-  this->previousNode = deleteNode->previousNode;
+  previousNode = deleteNode->previousNode;
   delete deleteNode;
 
   return true;
 }
 
 bool Node::EraseNextNode() {
-  if (this->nextNode == nullptr) return false;
-  Node* deleteNode = this->nextNode;
+  if (nextNode == nullptr) return false;
+
+  Node* deleteNode = nextNode;
   if (deleteNode->nextNode != nullptr) {
 	  deleteNode->nextNode->previousNode = this;
   }
-  this->nextNode = deleteNode->nextNode;
+  nextNode = deleteNode->nextNode;
   delete deleteNode;
 
   return true;

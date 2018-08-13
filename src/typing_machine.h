@@ -13,6 +13,13 @@ class TypingMachine {
   Node* tailNode;
   Node* cursorNode;
   int stringCount;
+  const int ASCII_RANGE_START = 32;
+  const int ASCII_RANGE_END = 126;
+  const int MAX_LENGTH = 100;
+
+ private:
+  std::string PrintWithoutSeparator();
+  std::string PrintWithSeparator(char separator);
 
  public:
   TypingMachine();
