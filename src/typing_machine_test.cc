@@ -37,6 +37,7 @@ public:
   static void RunTest() {
     BarSeparatorTest();
     BarSeparatorMultiStringTest();
+
     NullSeparatorTest();
     NullSeparatorMultiStringTest();
   }
@@ -140,19 +141,18 @@ public:
     HomeKeyFromMultiStringAtTailTest();
     HomeKeyFromMultiStringAtHeadTest();
     HomeKeyFromMultiStringAtMidTest();
+
     EndKeyFromEmptyStringTest();
     EndKeyFromSingleStringTest();
     EndKeyFromMultiStringAtTailTest();
     EndKeyFromMultiStringAtHeadTest();
     EndKeyFromMultiStringAtMidTest();
-
   }
 };
 
 class ArrowTestSuite
 {
 private:
-
   static void LeftKeyFromEmptyStringTest() {
     TypingMachine tm;
     tm.LeftKey();
@@ -244,6 +244,7 @@ public:
     LeftKeyFromMultiStringAtTailTest();
     LeftKeyFromMultiStringAtHeadTest();
     LeftKeyFromMultiStringAtMidTest();
+
     RightKeyFromEmptyStringTest();
     RightKeyFromSingleStringTest();
     RightKeyFromMultiStringAtTailTest();

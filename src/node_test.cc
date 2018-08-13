@@ -18,7 +18,6 @@ private:
 public:
   static void RunTest() {
     SingleNodeTest();
-    // add more..
   }
 };
 
@@ -135,7 +134,6 @@ private:
     delete nextNode;
   }
 
-
 public:
   static void RunTest() {
     GetPreviousNodeFromSingleNodeTest();
@@ -144,7 +142,6 @@ public:
     GetNextNodeFromMultiNodeTest();
   }
 };
-
 
 class EraseNodeTestSuite
 {
