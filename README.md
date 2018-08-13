@@ -54,6 +54,7 @@ You can verify correctness of this class Node with judging system.
 
 ### 2.2 class TypingMachine
 We will implement TypingMachine type denoting whole typing machine.
+
   One public constructor and seven public functions should be implemented.
   - TypingMachine(): Initialize new Typing Machine
   - void HomeKey(): Move cursor at the beginning of the line.
