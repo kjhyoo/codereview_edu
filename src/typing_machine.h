@@ -1,4 +1,4 @@
-// Copyright 2018 <Author>
+// Copyright 2018 sjh.yoo
 
 #ifndef TYPING_MACHINE_H_
 #define TYPING_MACHINE_H_
@@ -16,10 +16,6 @@ class TypingMachine {
   const int ASCII_RANGE_START = 32;
   const int ASCII_RANGE_END = 126;
   const int MAX_LENGTH = 100;
-
- private:
-  std::string PrintWithoutSeparator();
-  std::string PrintWithSeparator(char separator);
 
  public:
   TypingMachine();

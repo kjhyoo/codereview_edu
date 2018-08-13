@@ -1,4 +1,4 @@
-// Copyright 2018 <Author>
+// Copyright 2018 sjh.yoo
 
 #include "typing_machine.h"
 
@@ -48,26 +48,6 @@ bool TypingMachine::EraseKey() {
 }
 
 std::string TypingMachine::Print(char separator) {
-  if (separator == '\0') {
-    return PrintWithoutSeparator();
-  }
-  else {
-    return PrintWithSeparator(separator);
-  }
-}
-
-std::string TypingMachine::PrintWithoutSeparator() {
-  std::string result = "";
-
-  Node* currentNode = headNode->GetNextNode();
-  while (currentNode != tailNode) {
-    result.push_back(currentNode->GetData());
-    currentNode = currentNode->GetNextNode();
-  }
-  return result;
-}
-
-std::string TypingMachine::PrintWithSeparator(char separator) {
   std::string result = "";
 
   Node* currentNode = headNode;
@@ -75,7 +55,7 @@ std::string TypingMachine::PrintWithSeparator(char separator) {
     if (currentNode != headNode) {
       result.push_back(currentNode->GetData());
     }
-    if (currentNode == cursorNode) {
+    if (currentNode == cursorNode && separator != '\0') {
       result.push_back(separator);
     }
     currentNode = currentNode->GetNextNode();
