@@ -13,12 +13,10 @@ char Node::GetData() {
 }
 
 Node* Node::GetPreviousNode() {
-  if (previousNode == nullptr) return nullptr;
   return previousNode;
 }
 
 Node* Node::GetNextNode() {
-  if (nextNode == nullptr) return nullptr;
   return nextNode;
 }
 
